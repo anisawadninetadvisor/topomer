@@ -5,7 +5,7 @@
   },
   "type": "angular",
   "scripts": {
-    "before_build": "npm install --legacy-peer-deps",
+   "before_build": "npm install --force",
     "after_build": "echo 'Build terminé'"
   }
 }
