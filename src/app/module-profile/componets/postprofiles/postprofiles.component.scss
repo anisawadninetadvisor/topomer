@@ -1,0 +1,55 @@
+.post-componets i {
+    font-size: 17px;
+}
+
+video {
+    max-width: 100%;
+    /* Assure que la vidéo ne dépasse pas la largeur de son conteneur */
+    height: auto;
+    /* Maintient le ratio d'aspect de la vidéo */
+}
+
+.post-text {
+    background-color: aqua;
+    min-height: 300px;
+    width: 100%;
+}
+
+.post-background {
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    /* ou utilisez p-3 si vous utilisez Bootstrap */
+    margin-bottom: 1rem;
+    /* ou utilisez mb-3 si vous utilisez Bootstrap */
+}
+
+.post-text {
+    text-align: center;
+}
+
+.post-text p {
+    color: #333;
+}
+
+.tag_anis {
+    color: blue;
+    font-weight: bold;
+}
+
+ion-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .slide-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        /* Arrondi des coins des images */
+    }
+}
+
+.icone-anis-awadni i {
+    font-size: 22p !important;
+}

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="559" height="559" viewBox="0 0 559 559">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+
+      .cls-2, .cls-6 {
+        fill: #fe9870;
+      }
+
+      .cls-3, .cls-7 {
+        fill: #fa416a;
+      }
+
+      .cls-4 {
+        fill: #0dac69;
+      }
+
+      .cls-5, .cls-8 {
+        fill: #3876f6;
+      }
+
+      .cls-6, .cls-7, .cls-8, .cls-9 {
+        fill-rule: evenodd;
+      }
+
+      .cls-9 {
+        fill: #53d0ec;
+      }
+    </style>
+  </defs>
+  <circle class="cls-1" cx="279.5" cy="279.5" r="279.5"/>
+  <g id="Group_3_copy_2" data-name="Group 3 copy 2">
+    <rect id="Rounded_Rectangle_1" data-name="Rounded Rectangle 1" class="cls-2" x="294.719" y="235.5" width="150.469" height="90.438" rx="45.219" ry="45.219"/>
+    <rect id="Rounded_Rectangle_1_copy" data-name="Rounded Rectangle 1 copy" class="cls-2" x="450.781" y="253.094" width="56.031" height="56.031" rx="28.014" ry="28.014"/>
+  </g>
+  <g id="Group_3_copy" data-name="Group 3 copy">
+    <rect id="Rounded_Rectangle_1-2" data-name="Rounded Rectangle 1" class="cls-3" x="234.688" y="294.719" width="90.437" height="150.469" rx="45.219" ry="45.219"/>
+    <rect id="Rounded_Rectangle_1_copy-2" data-name="Rounded Rectangle 1 copy" class="cls-3" x="251.5" y="450.781" width="56.031" height="56.031" rx="28.014" ry="28.014"/>
+  </g>
+  <g id="Group_3_copy_2-2" data-name="Group 3 copy 2">
+    <rect id="Rounded_Rectangle_1-3" data-name="Rounded Rectangle 1" class="cls-4" x="114.625" y="235.5" width="150.469" height="90.438" rx="45.219" ry="45.219"/>
+    <rect id="Rounded_Rectangle_1_copy-3" data-name="Rounded Rectangle 1 copy" class="cls-4" x="53" y="252.312" width="56.031" height="56" rx="28" ry="28"/>
+  </g>
+  <g>
+    <rect id="Rounded_Rectangle_1-4" data-name="Rounded Rectangle 1" class="cls-5" x="234.688" y="114.625" width="90.437" height="150.469" rx="45.219" ry="45.219"/>
+    <rect id="Rounded_Rectangle_1_copy-4" data-name="Rounded Rectangle 1 copy" class="cls-5" x="252.312" y="53" width="56" height="56.031" rx="28" ry="28"/>
+  </g>
+  <g id="Group_3_copy_3" data-name="Group 3 copy 3">
+    <path id="Rounded_Rectangle_1-5" data-name="Rounded Rectangle 1" class="cls-6" d="M205.574,272.784l-44.626-40.151A45.222,45.222,0,1,1,221.442,165.4l44.626,40.151A45.222,45.222,0,0,1,205.574,272.784Z"/>
+    <path id="Rounded_Rectangle_1_copy-5" data-name="Rounded Rectangle 1 copy" class="cls-6" d="M114.2,166.889l-0.173-.156a27.9,27.9,0,0,1-2.08-39.4l0.156-.174a27.9,27.9,0,0,1,39.4-2.079l0.173,0.156a27.9,27.9,0,0,1,2.08,39.4l-0.156.174A27.9,27.9,0,0,1,114.2,166.889Z"/>
+  </g>
+  <g id="Group_3_copy_3-2" data-name="Group 3 copy 3">
+    <path id="Rounded_Rectangle_1-6" data-name="Rounded Rectangle 1" class="cls-7" d="M289.815,268.9a45.222,45.222,0,0,1-3.371-63.865L326.6,160.413a45.222,45.222,0,1,1,67.236,60.494L353.68,265.533A45.223,45.223,0,0,1,289.815,268.9Z"/>
+    <path id="Rounded_Rectangle_1_copy-6" data-name="Rounded Rectangle 1 copy" class="cls-7" d="M394.591,153.223l-0.173-.157a27.9,27.9,0,0,1-2.08-39.4l0.156-.174a27.9,27.9,0,0,1,39.4-2.079l0.173,0.156a27.9,27.9,0,0,1,2.08,39.4l-0.156.174A27.9,27.9,0,0,1,394.591,153.223Z"/>
+  </g>
+  <g id="Group_3_copy_3-3" data-name="Group 3 copy 3">
+    <path id="Rounded_Rectangle_1-7" data-name="Rounded Rectangle 1" class="cls-8" d="M339.451,393.236l-44.626-40.151a45.222,45.222,0,0,1,60.494-67.236L399.945,326A45.222,45.222,0,0,1,339.451,393.236Z"/>
+    <path id="Rounded_Rectangle_1_copy-7" data-name="Rounded Rectangle 1 copy" class="cls-8" d="M409.389,433.55l-0.174-.156a27.9,27.9,0,0,1-2.08-39.4l0.157-.173a27.9,27.9,0,0,1,39.4-2.08l0.174,0.156a27.9,27.9,0,0,1,2.079,39.4l-0.156.173A27.9,27.9,0,0,1,409.389,433.55Z"/>
+  </g>
+  <g id="Group_3_copy_3-4" data-name="Group 3 copy 3">
+    <path id="Rounded_Rectangle_1-8" data-name="Rounded Rectangle 1" class="cls-9" d="M169.363,402.781a45.222,45.222,0,0,1-3.371-63.865l40.151-44.626a45.222,45.222,0,0,1,67.236,60.494L233.228,399.41A45.223,45.223,0,0,1,169.363,402.781Z"/>
+    <path id="Rounded_Rectangle_1_copy-8" data-name="Rounded Rectangle 1 copy" class="cls-9" d="M127.931,448.407l-0.174-.156a27.9,27.9,0,0,1-2.079-39.4l0.156-.173a27.9,27.9,0,0,1,39.4-2.08l0.174,0.156a27.9,27.9,0,0,1,2.079,39.4l-0.156.173A27.9,27.9,0,0,1,127.931,448.407Z"/>
+  </g>
+</svg>

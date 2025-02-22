@@ -1,0 +1,31 @@
+<div class="footer mt-auto osahan-footer bg-white shadow" >
+  <div class="d-flex align-items-center justify-content-between bottom-nav-main">
+      <a  class="col  text-center" (click)="actualise()" [routerLink]="'/'">
+        <img src="/assets/icon/home.png">
+      </a>
+      <a  class="col text-muted text-center" [routerLink]="'/message'">
+        <img src="/assets/icon/messages.png">
+        <p class="small m-0 position-relative" >
+          <span *ngIf="new_msg>0"  class="position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger py-1 fw-normal" style=" left: 65% !important;
+    margin-top: -20px !important;">
+          <span *ngIf="new_msg>9">+9</span>
+          <span *ngIf="new_msg<10">{{new_msg}}</span>
+  </span>
+        </p>
+              </a>
+      <a  class="col text-muted text-center" [routerLink]="'/type-post'">
+        <img src="/assets/icon/add.png">
+      </a>
+      <a  class="col text-muted text-center" [routerLink]="'/page-initiales-partenaires'">
+        <img src="/assets/icon/shopping.png">
+      </a>
+      <a  class="col text-muted text-center" [routerLink]="'/page-initiale-profile'">
+        <img [src]="baseUrlFile + user.image" alt="" class="img-fluid rounded-pill profile">
+        
+      </a>
+  </div>
+</div>
+
+
+
+

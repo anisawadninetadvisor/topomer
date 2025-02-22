@@ -1,0 +1,79 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true" class="overflow-hidden" style="background: white;">
+  <div class="profile d-flex flex-column vh-100 w-100">
+    <!-- Navbar -->
+    <div class="mb-auto profile-navbar">
+      <div class="d-flex align-items-center p-3">
+        <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+          <a class="d-flex" routerLink="/type-post">
+            <i class='bx bx-arrow-back bx-sm text-white'></i>
+          </a>
+        </div>
+        <div style="margin-left: 10px;">
+          <h3>New post</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="vh-100 my-auto overflow-auto p-3">
+      <div class="mb-2">
+        <h5 class="p-3 mb-0"></h5>
+        <h5 class="p-3 mb-0"></h5>
+
+        <!-----liste -->
+        <div class="row row-cols-3 g-4 custom-check p-3">
+         
+          <textarea style="{{er_style}}" type="text" [(ngModel)]="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" id="exampleInputText1" placeholder="Write a captivating caption to engage your audience" aria-describedby="textHelp"></textarea>
+          <div class="col-lg-12" style="width:100%;color:red">{{er}}</div>
+          <div class="col-lg-12" style="width:100%">
+          <h4>Choose Pictures</h4>
+           </div>
+           <!--- dispaly file -->
+                <div class="col" *ngFor="let key of fileloading;let i = index">
+                  <div class="text-center" (click)="deleteImage(i)">
+                    <div>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio{{i+12}}" autocomplete="off">
+                    
+                        <img [src]="key" style="height: 100px; border-radius: 8px;" alt="Uploaded Image">
+                        
+                                      </div>
+                  </div>
+                 
+                </div>
+           <div class="col">
+            <div class="text-center">
+                <div>
+                    <!-- Hidden file input -->
+                    <input type="file" id="fileInput" style="display: none;" (change)="handleFileUpload($event)">
+                    
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio50" autocomplete="off">
+                    <label style="padding: 5px; cursor: pointer;" class="btn btn-outline-primary osahan-box" for="btnradio50" onclick="document.getElementById('fileInput').click();">
+                        <i class="bx bxs-plus-circle bx-lg" style="font-size: 48px; color: #000;"></i>
+                    </label>
+                </div>
+            </div>
+           </div>
+            <button style="background-color:#333434 !important;z-index=555" (click)="uploadImages()" class="btn btn-primary btn-lg w-100">Share</button>
+            
+
+            
+            
+
+
+
+          </div>
+
+
+   
+      
+       
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</ion-content>

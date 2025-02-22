@@ -1,0 +1,74 @@
+    
+    <ion-header [translucent]="true" >
+      
+      <div class="mb-auto p-3 bg-primary osahan-header" style="background-color:#78c6ca !important">
+      
+  
+           
+       
+        <!-- search -->
+        <div class="input-group bg-white border-0 rounded-3 shadow py-1">
+            <span class="input-group-text bg-transparent border-0" id="search"><i
+              class="bx bx-search bx-sm text-muted"></i></span>
+              <input type="text" class="form-control bg-transparent border-0 ps-0"
+              placeholder="Search" aria-label="search" 
+              (input)="onSearch($event)">
+               </div>
+    </div>
+    </ion-header>
+  
+    <ion-content [fullscreen]="true">
+     
+    <div class="home d-flex flex-column vh-100 flex-grow-1 ">
+        <!-- navbar -->
+        <div class="vh-100 my-auto overflow-auto p-3" *ngIf="message.length==0">
+      
+          <div class="text-muted text-center py-3">  No messages yet.</div>
+        </div>
+        <div class="vh-100 my-auto overflow-auto p-3" *ngIf="message.length>0">
+          <!-- message-1 -->
+           <ng-container *ngFor="let msg of message;let i = index">
+
+          <a [routerLink]="['/message-user-client', msg.user_id_receive, msg.user_id_send]"  class="link-dark" *ngIf="msg.user_id_send!=userId">
+              <div class="d-flex align-items-center gap-3 mb-4">
+                  <img [src]="base_url_file  + msg.sender_image" alt="" class="img-fluid rounded-lg shadow profile">
+                  <div>
+                      <h6 class="mb-1">{{msg.sender_username}}</h6>
+                    
+                      <p class="fw-bold text-primary m-0 small" *ngIf="!msg.files && msg.status_rec=='read'" style="color:black !important">{{ truncateMessage(msg.message) }}<span class="fw-normal text-muted"></span></p>
+                          <p class="fw-bold text-primary m-0 small" *ngIf="!msg.files && msg.status_rec=='unread'">{{ truncateMessage(msg.message) }}<span class="fw-normal text-muted"></span></p>
+
+                         
+                      <p class="fw-bold text-primary m-0 small" *ngIf="msg.files"> <i class="bx bxs-image bx-sm text-primary"></i></p>
+                    </div>
+                  <div class="ms-auto">
+                    <span class="fw-normal text-muted" style="font-size:10px">{{ timeAgo(msg.createdAt) }}</span>
+                  </div>
+              </div>
+          </a>
+          <a [routerLink]="['/message-user-client', msg.user_id_receive, msg.user_id_receive]"  class="link-dark" *ngIf="msg.user_id_send==userId">
+            <div class="d-flex align-items-center gap-3 mb-4">
+                <img [src]="base_url_file  + msg.receiver_image" alt="" class="img-fluid rounded-lg shadow profile">
+                <div>
+                    <h6 class="mb-1">{{msg.receiver_username}}</h6>
+                    <p class="fw-bold text-primary m-0 small" style="color:black !important">
+                      <span *ngIf="msg.message==''"><i class="bx bxs-image bx-sm text-primary"></i></span>
+                      <span *ngIf="msg.message!=''">  {{ truncateMessage(msg.message) }}</span>
+                     
+                       <span class="fw-normal text-muted"><br>You</span></p>
+                </div>
+                <div class="ms-auto">
+                    <span class="fw-normal text-muted" style="font-size:10px">{{ timeAgo(msg.createdAt) }}</span>
+                </div>
+            </div>
+        </a>
+        </ng-container>
+        </div>
+
+    </div>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <app-footer></app-footer>   
+    </ion-toolbar>
+  </ion-footer>

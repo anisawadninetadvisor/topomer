@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+<ion-content [fullscreen]="true">
+<div class="log-in p-4">
+  <a routerLink="/login"><i class="bx bx-arrow-back bx-sm text-black" style="z-index:555" aria-hidden="true"></i></a>
+<div class="d-flex align-items-start justify-content-between mb-4">
+    <div>
+        <h2 class="fw-bold text-primary">Let’s Get Started!</h2>
+        <span>Sign up with Social of fill the form to continue.</span>
+    </div>
+</div>
+    <div class="mb-4">
+        <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Email</label>
+        <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.email}}" [(ngModel)]="user.email" id="exampleInputEmail1" >
+        <div style="color:red">{{userVerif.email}}</div>
+      </div>
+    <div class="mb-4">
+      <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Username</label>
+      <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.username}}" [(ngModel)]="user.username" id="exampleInputEmail1" >
+      <div style="color:red">{{userVerif.username}}</div>
+    </div>
+    <div class="mb-4">
+      <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Name</label>
+      <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.nom}}" [(ngModel)]="user.nom" id="exampleInputEmail1" >
+      <div style="color:red">{{userVerif.nom}}</div>
+    </div>
+    <div class="mb-4">
+      <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">First name</label>
+      <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.prenom}}" [(ngModel)]="user.prenom" id="exampleInputEmail1" >
+      <div style="color:red">{{userVerif.prenom}}</div>
+    </div>
+   
+    <div class="mb-4">
+      <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Phone</label>
+      <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.phone}}" [(ngModel)]="user.phone" id="exampleInputEmail1" >
+      <div style="color:red">{{userVerif.phone}}</div>
+    </div>
+     <div class="mb-2">
+        <label for="exampleInputPassword1" class="form-label text-muted mb-0 small" >Password</label>
+        <input type="password" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" [(ngModel)]="user.password" style="{{userVerifstyle.password}}" id="exampleInputPassword1" >
+        <div style="color:red">{{userVerif.password}}</div>
+      </div>
+    
+    <button class="btn btn-primary btn-lg w-100" (click)="sendData()">Sing Up</button>
+</div>
+<div class="fixed-bottom  text-center">
+<p>You have an account !? <a routerLink="/login">Sign</a></p>
+</div>
+</ion-content>

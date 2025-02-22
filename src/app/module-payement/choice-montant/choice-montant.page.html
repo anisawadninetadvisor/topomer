@@ -1,0 +1,93 @@
+<ion-header [translucent]="true">
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="overflow-hidden" style="background: white">
+    <div class="profile d-flex flex-column vh-100 w-100">
+      <!-- Navbar -->
+      <div class="mb-auto profile-navbar">
+        <div class="d-flex align-items-center p-3">
+          <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+            <a class="d-flex" routerLink="{{path}}">
+              <i class='bx bx-arrow-back bx-sm text-white'></i>
+            </a>
+          </div>
+          <div style="margin-left: 10px">
+            <h3>Deposit</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="vh-100 my-auto overflow-auto">
+        <div class="mb-2">
+          <h5 class="p-3 mb-0"></h5>
+          <h5 class="p-3 mb-0"></h5>
+
+          <!-- User Profile Section -->
+         
+            <div class="bg-white rounded-3 shadow d-flex align-items-center p-3 border mb-2">
+              <div class="" style="width:100%">
+              
+                <div class="row row-cols-2 g-4 custom-check">
+                  <div class="col">
+                    <div class="text-center">
+                        <div>
+                            <label style="background:white" class="btn btn-outline-primary osahan-box" for="btnradio2"><img [src]="baseUrlFile+userSend.image" alt="Profile Image" class="img-fluid rounded-pill " style="width:80px;height:80px">
+                       </label>
+                        </div>
+                        <p class="pt-2 m-0">   {{userSend.nom}} {{userSend.prenom}}</p>
+                    </div>
+                </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <div>
+                                <label style="background:white" class="btn btn-outline-primary osahan-box" for="btnradio2"><img [src]="baseUrlFile+user.image" alt="Profile Image" class="img-fluid rounded-pill " style="width:80px;height:80px">
+                           </label>
+                            </div>
+                            <p class="pt-2 m-0">   {{user.nom}} {{user.prenom}}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+            <br><br>
+          <!-- Settings Links -->
+          <div class="m-3">
+            <div class="mb-3">
+                <label for="exampleInputName1" class="form-label text-muted mb-0 small" style="font-size:18px">Enter Amount to Add</label>
+                <input type="number" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{payStyle}}" id="exampleInputName1" [(ngModel)]="pay"  aria-describedby="nameHelp">
+              <br><div style="color:red">{{payEr}}</div>
+              <label class="form-label text-muted mb-0 small" style="font-size:18px">Type</label>
+              <select class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" [(ngModel)]="type">
+                <option value="1" selected>Consultation</option>
+                <option value="2">Shop</option>
+              </select>
+              </div>
+           
+            <div class="row row-cols-2 g-4 custom-check">
+              <div class="col">
+                
+              </div>
+              <div class="col">
+                <br><br>
+                  <button style="background-color:#333434 !important;z-index=555" class="btn btn-primary btn-lg w-100" (click)="next();">Next</button>
+              </div>
+          </div>
+       
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>
+

@@ -1,0 +1,35 @@
+.osahan-header-tab .nav-tabs .nav-link {
+    border-bottom: 3px solid white !important;
+}
+
+.anis-tabs {
+    width: 80%;
+    margin-left: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-left: 0px solid red;
+    border-right: 0px solid red
+}
+
+.private-account {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    /* Ajuste selon besoin */
+    /* Effet pro */
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.private-account img {
+    width: 80px;
+    /* Ajuste la taille */
+    opacity: 0.8;
+    transition: transform 0.3s ease-in-out;
+}
+
+.private-account img:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}

@@ -1,0 +1,32 @@
+.dropdown-menu,
+.dropdown-menu li {
+    z-index: 5555;
+    /* ou une valeur plus élevée si nécessaire */
+}
+
+.custom-list {
+    list-style: none;
+    /* Supprimer les puces */
+    padding: 0;
+    margin: 0;
+    /* Centrer le texte */
+}
+
+.custom-list li {
+    display: inline-block;
+    /* Pour aligner les éléments horizontalement */
+    /* Espacement entre les éléments */
+}
+
+.custom-list a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    /* Pour garder la couleur par défaut */
+}
+
+.custom-list ion-icon {
+    /* Espacement entre l'icône et le texte */
+}

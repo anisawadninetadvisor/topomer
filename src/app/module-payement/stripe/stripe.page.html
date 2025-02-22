@@ -1,0 +1,96 @@
+<ion-header [translucent]="true">
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="overflow-hidden" style="background: white">
+    <div class="profile d-flex flex-column vh-100 w-100">
+      <!-- Navbar -->
+      <div class="mb-auto profile-navbar">
+        <div class="d-flex align-items-center p-3">
+          <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+            <a class="d-flex" routerLink="{{path}}">
+              <i class='bx bx-arrow-back bx-sm text-white'></i>
+            </a>
+          </div>
+          <div style="margin-left: 10px">
+            <h3>Deposit</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="vh-100 my-auto overflow-auto">
+        <div class="mb-2">
+          <h5 class="p-3 mb-0"></h5>
+          <h5 class="p-3 mb-0"></h5>
+
+          <!-- User Profile Section -->
+         
+            <div class="bg-white rounded-3 shadow d-flex align-items-center p-3 border mb-2">
+              <div class="" style="width:100%">
+              
+                <div class="row row-cols-2 g-4 custom-check">
+                  <div class="col">
+                    <div class="text-center">
+                        <div>
+                            <label style="background:white" class="btn btn-outline-primary osahan-box" for="btnradio2"><img [src]="baseUrlFile+userSend.image" alt="Profile Image" class="img-fluid rounded-pill " style="width:80px;height:80px">
+                       </label>
+                        </div>
+                        <p class="pt-2 m-0">   {{userSend.nom}} {{userSend.prenom}}</p>
+                    </div>
+                </div>
+                    <div class="col">
+                        <div class="text-center">
+                            <div>
+                                <label style="background:white" class="btn btn-outline-primary osahan-box" for="btnradio2"><img [src]="baseUrlFile+user.image" alt="Profile Image" class="img-fluid rounded-pill " style="width:80px;height:80px">
+                           </label>
+                            </div>
+                            <p class="pt-2 m-0">   {{user.nom}} {{user.prenom}}</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            </div>
+            <br><br>
+          <!-- Settings Links -->
+        
+          
+          
+          
+          <div class="payment-container" *ngIf="confirmPaiment==false">
+            <h2>Payement {{pay}} $</h2>
+            <div id="card-element"></div>
+            <button (click)="processPayment()">Payer</button>
+          </div>
+
+          
+          <div class="container" *ngIf="confirmPaiment == true">
+            <div class="success-message">
+              <div class="col-lg-12">
+                <ion-icon name="checkmark-circle" class="success-icon"></ion-icon>
+              </div>
+              <br>
+              <div class="col-lg-12"><p style="margin-top:13%">Payment Successful!</p></div>
+            </div>
+            
+          </div>
+           
+            <!-- Bouton de soumission -->
+           
+     
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>
+

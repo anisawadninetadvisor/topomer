@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "311031680675",
+    "project_id": "topomer",
+    "storage_bucket": "topomer.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:311031680675:android:8d8523ba5d5450edb37916",
+        "android_client_info": {
+          "package_name": "com.topomer.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "311031680675-gug19jo7utj38s6ashj8ucdm8o7uf9v2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE6KzfTctlZLDdgnppjCrS0PBHcD2UiS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "311031680675-gug19jo7utj38s6ashj8ucdm8o7uf9v2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

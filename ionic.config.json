@@ -1,0 +1,7 @@
+{
+  "name": "topomer_v1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

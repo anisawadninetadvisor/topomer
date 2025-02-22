@@ -1,0 +1,53 @@
+
+    
+    <ion-header [translucent]="true">
+ 
+    </ion-header>
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <app-header></app-header>
+       
+        </ion-toolbar>
+      </ion-header> 
+    <ion-content  [scrollEvents]="true" (ionScroll)="logScrolling($event)" style="overflow-y: scroll;--offset-bottom:0px !important">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="loading-container">
+        <div class="loader"></div>
+      </div>
+          <div class="home d-flex flex-column vh-100 flex-grow-1 container">
+            <!-- navbar -->
+             <div class="row" *ngIf="loading">
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/1.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/2.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/3.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/4.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/5.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/6.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/7.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/8.png"></div>
+              <div class="col-lg-6 col-6">   <img src="{{baseUrlFile}}uploads/marques/9.png"></div>
+          
+
+             </div>
+             
+                      
+
+                
+            
+          
+        </div>
+    <br><br><br>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <app-footer></app-footer>   
+    </ion-toolbar>
+  </ion-footer>
+
+   
+
+   
+    
+

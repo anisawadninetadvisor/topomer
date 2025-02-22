@@ -1,0 +1,35 @@
+<div class="home-navbar d-flex align-items-center gap-3 mb-auto p-3 osahan-header">
+  <img src="/assets/images/logo.png" alt="Logo" class="img-fluid img-responsive" style="width:100px">
+
+  <div class="d-flex align-items-center gap-3 ms-auto">
+      <a routerLink="/notification" class="bg-white shadow rounded-pill notification-icon position-relative">
+          <i class='bx bxs-bell h5 m-0 text-primary'></i>
+          <span class="span-anis position-absolute top-0 start-100 translate-middle badge rounded-circle bg-danger py-1 fw-normal">
+            <em *ngIf="nb>0">
+               <span *ngIf="nb>9">+9</span>
+              <span *ngIf="nb<10">{{nb}}</span>
+            </em>
+          </span>
+      </a>
+      
+      <div class="dropdown" style="position: relative; z-index: 1000;" id="present-alert">
+        <a class="toggle notification-icon d-flex align-items-center bg-white rounded-pill " id="click-trigger" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class='bx bx-menu bx-sm text-primary'></i>
+        </a>
+        <ion-popover trigger="click-trigger" triggerAction="click">
+          <ng-template>
+            <ion-content class="ion-padding">
+             
+              <ul class="custom-list">
+                <li><a class="dropdown-item" href="/login"><ion-icon name="log-out-outline"></ion-icon> Logout</a></li>
+               
+              </ul>
+            </ion-content>
+          </ng-template>
+        </ion-popover>
+      </div> 
+  </div>
+</div>
+
+
+

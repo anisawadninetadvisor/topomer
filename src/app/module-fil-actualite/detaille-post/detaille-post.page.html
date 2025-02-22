@@ -1,0 +1,32 @@
+
+    
+   <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+   
+    </ion-toolbar> 
+  </ion-header>
+     
+    <ion-content [fullscreen]="true">
+        <!-- navbar -->
+         
+        <div class="vh-100 my-auto overflow-auto" > 
+          <app-post *ngIf="!loading"  [post]="post" [compte]="0"></app-post>
+          <div *ngIf="loading" class="loading-animation p-3 post-componets rounded-3  shadow border">
+         
+
+          </div>
+
+        </div>
+
+            
+            
+       
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,97 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <!-- Bouton retour -->
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="path" style="z-index: 555;">
+        <ion-icon name="arrow-back-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-avatar>
+       
+        <img [src]="baseUrlFile+sender.image" alt="User Image" style="width:40px;height:40px" (click)="direction(sender.id)">
+       
+      </ion-avatar>
+    </ion-buttons>
+    <!-- Titre -->
+    <ion-title class="fw-bold text-tr" style="text-align: center; z-index: 555;">
+      {{ name }}
+    </ion-title>
+
+    <!-- Image utilisateur -->
+  
+
+  </ion-toolbar>
+</ion-header>
+
+
+<div class="loading-anis" *ngIf="!loading">
+  <div class="loader"></div>
+</div>
+<ion-content #content [scrollEvents]="true" (ionScroll)="logScrolling($event)" class="chat-container" style="--padding-top: 0; --padding-bottom: 0;overflow-y: scroll;" >
+ <ng-container *ngIf="loading">
+  <div class="text-muted text-center py-3" (click)="afficherplus()" *ngIf="afficheplus &&  message.length>10">- show more -</div>
+  <div class="text-muted text-center py-3" (click)="afficherplus()" *ngIf="message.length==0 ">- no available message -</div>
+  <div class="text-muted text-center py-3" *ngIf="afficheplus==false && message.length>0 || message.length<11">- There are no more messages. -</div>
+  <div class="vh-100 my-auto p-3">
+    <div *ngFor="let msg of message; let i = index">
+      <!-- Message reçu -->
+      <div class="d-flex align-items-end justify-content-start gap-3 mb-4" *ngIf="msg.user_id_send !== id">
+        <img [src]="baseUrlFile + msg.sender_image" alt="Image de l'utilisateur" class="img-fluid rounded-lg profile">
+        <div class="bg-light rounded-left-0 p-3" *ngIf="!msg.files">
+          <p class="m-0">{{ msg.message }}</p>
+        </div>
+        <div class="bg-light rounded-left-0 p-3" *ngIf="msg.files">
+          <img [src]="baseUrlFile + msg.files" alt="Image">
+        </div>
+      </div>
+      <!-- Message envoyé -->
+      <div class="d-flex align-items-end justify-content-end gap-3 mb-4" *ngIf="msg.user_id_send === id">
+        <div class="bg-primary text-white rounded-right-0 p-3" *ngIf="!msg.files">
+          <p class="m-0">{{ msg.message }}</p>
+        </div>
+        <div class="text-white rounded-right-0 p-3" *ngIf="msg.files">
+          <img [src]="baseUrlFile + msg.files" alt="Image">
+        </div>
+        <img [src]="baseUrlFile + msg.sender_image" alt="Image de l'utilisateur" class="img-fluid rounded-lg profile">
+      </div>
+    </div>
+    <div class="" style="height:10px !important" id="bottom"></div>
+  </div>
+</ng-container>
+</ion-content>
+
+
+<ion-footer>
+  <div class="footer bg-white mt-auto">
+    <div class="d-flex align-items-center gap-3 p-2">
+      <!-- Bouton pour ouvrir la section des fichiers -->
+      <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <i class="bx bxs-image bx-sm"></i>
+      </a>
+      <!-- Champ d'envoi de message -->
+      <div class="input-group">
+        <input type="text" class="form-control border-0 bg-light" placeholder="Aa" [(ngModel)]="msg">
+        <span class="input-group-text border-0 bg-light" (click)="send()" (keyup.enter)="send()">
+          <i class="bx bxs-send bx-sm text-primary"></i>
+        </span>
+      </div>
+    </div>
+    <!-- Section fichiers -->
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body bg-lighter rounded-0 border-0 py-4">
+        <div class="row row-cols-4">
+          <div class="col text-center">
+            <input type="file" id="fileInput" style="display: none;" (change)="handleFileUpload($event)">
+            <a class="link-dark" onclick="document.getElementById('fileInput').click();">
+              <div class="bg-secondary rounded-lg icon m-auto">
+                <i class="bx bx-paperclip bx-sm text-white"></i>
+              </div>
+              <p class="pt-2 m-0 small">Attach picture</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-footer>

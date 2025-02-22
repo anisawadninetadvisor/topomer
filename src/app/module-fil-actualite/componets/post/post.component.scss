@@ -1,0 +1,201 @@
+.post-componets i {
+    font-size: 17px;
+}
+
+video {
+    max-width: 100%;
+    /* Assure que la vidéo ne dépasse pas la largeur de son conteneur */
+    height: auto;
+    /* Maintient le ratio d'aspect de la vidéo */
+}
+
+.post-text {
+    background-color: aqua;
+    min-height: 300px;
+    width: 100%;
+}
+
+.post-background {
+    background-color: #f0f2f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    /* ou utilisez p-3 si vous utilisez Bootstrap */
+    margin-bottom: 1rem;
+    /* ou utilisez mb-3 si vous utilisez Bootstrap */
+}
+
+.post-text {
+    text-align: center;
+}
+
+.post-text p {
+    color: #333;
+}
+
+.tag_anis {
+    color: blue;
+    font-weight: bold;
+}
+
+ion-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .slide-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+        /* Arrondi des coins des images */
+    }
+}
+
+.icone-anis-awadni i {
+    font-size: 22p !important;
+}
+
+
+/* Cibler spécifiquement les boutons à l'intérieur de l'ActionSheet */
+
+
+/* Applique les styles aux boutons ActionSheet à l'intérieur de my-custom-class */
+
+.action-sheet-button {
+    color: black !important
+}
+
+.my-custom-class span {
+    color: black !important
+}
+
+.my-custom-class .action-sheet-button {
+    text-align: left !important;
+    /* Aligne le texte et l'icône à gauche */
+    display: flex !important;
+    /* Utilisation de flex pour l'alignement */
+    justify-content: flex-start !important;
+    /* Force l'alignement à gauche */
+    align-items: center !important;
+    /* Assurez-vous que l'icône et le texte sont bien centrés verticalement */
+}
+
+
+/* Classe pour le bouton "Share" */
+
+.share-class {
+    color: black !important;
+    /* Couleur noire pour Share */
+    padding-left: 10px !important;
+    /* Ajoute un petit padding à gauche pour un meilleur alignement */
+}
+
+
+/* Classe pour le bouton "Signal" */
+
+.signal-class {
+    color: red !important;
+    /* Couleur rouge pour Signal */
+    padding-left: 10px !important;
+    /* Ajoute un padding à gauche pour Signal */
+}
+
+.post-like {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+/* Animation de swipe */
+
+.post-like.swiped {
+    transform: scale(1.1);
+    /* Agrandir l'élément */
+    opacity: 0.5;
+    /* Rendre l'élément semi-transparent */
+}
+
+.loading-anis {
+    width: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    position: relative;
+}
+
+.loading-anis .loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc;
+    border-top-color: #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width:382px) {
+    .none-mobile {
+        display: none;
+    }
+}
+
+
+/* Animation du Like */
+
+.like-animation {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeInScale 0.6s ease-out forwards;
+    z-index: 1000;
+}
+
+
+/* Contenu du Like (cœur + texte) */
+
+.like-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 80px;
+    font-weight: bold;
+    color: red;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+
+/* Texte LIKE */
+
+.like-text {
+    font-size: 40px;
+    color: white;
+    margin-top: 10px;
+}
+
+
+/* Animation d’apparition */
+
+@keyframes fadeInScale {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.3);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,71 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true" class="overflow-hidden" style="background: white;">
+  <div class="profile d-flex flex-column vh-100 w-100">
+    <!-- Navbar -->
+    <div class="mb-auto profile-navbar">
+      <div class="d-flex align-items-center p-3">
+        <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+          <a class="d-flex" routerLink="/">
+            <i class='bx bx-arrow-back bx-sm text-white'></i>
+          </a>
+        </div>
+        <div style="margin-left: 10px;">
+          <h3>Choose the Type of Post</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="vh-100 my-auto overflow-auto p-3">
+      <div class="mb-2">
+        <h5 class="p-3 mb-0"></h5>
+        <h5 class="p-3 mb-0"></h5>
+
+        <!-----liste -->
+        <div class="row row-cols-3 g-4 custom-check">
+          <div class="col" (click)="choice(1)">
+              <div class="text-center" >
+                  <div>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" *ngIf="type == 1" [checked]="type == 1">
+                      <label class="btn btn-outline-primary osahan-box" for="btnradio1"><i class="bx bxs-message bx-lg"></i>
+
+                  </label>
+                  </div>
+                  <p class="pt-2 m-0">Text<br></p>
+              </div>
+          </div>
+          <div class="col" (click)="choice(2)">
+              <div class="text-center">
+                  <div>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" *ngIf="type == 2" [checked]="type == 2">
+                      <label class="btn btn-outline-primary osahan-box" for="btnradio2"><i class="bx bxs-image bx-lg"></i>
+
+                  </label>
+                  </div>
+                  <p class="pt-2 m-0">Pictures<br></p>
+              </div>
+          </div>
+          <div class="col" (click)="choice(3)">
+              <div class="text-center">
+                  <div>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" *ngIf="type == 3" [checked]="type == 3">
+                      <label class="btn btn-outline-primary osahan-box" for="btnradio3"><i class="bx bxs-video bx-lg"></i>
+                  </label>
+                  </div>
+                  <p class="pt-2 m-0">Videos<br></p>
+              </div>
+          </div>
+         
+        
+      </div>
+        <br><br>
+        <button style="background-color:#333434 !important;z-index=555" class="btn btn-primary btn-lg w-100" (click)="next()">Next</button>
+      </div>
+    </div>
+
+    <app-footer></app-footer>
+  </div>
+</ion-content>

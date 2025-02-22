@@ -1,0 +1,153 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+
+<ion-content [fullscreen]="true" >
+  
+  <div class="overflow-hidden">
+     <div class="profile d-flex flex-column vh-100 w-100">
+      <!-- Navbar -->
+      <div class="mb-auto profile-navbar w-100">
+        <div class="d-flex align-items-center p-3">
+          <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+            <a class="d-flex" routerLink="/"><i class='bx bx-arrow-back bx-sm text-white'></i></a>
+          </div>
+        </div>
+      </div>
+      <!-- Body -->
+      <div class="vh-100 my-auto overflow-auto">
+        <div class="mb-3">
+          <img src="/assets/assets/img/personal/personal-1.jpg" alt="Profile Cover" style="height: 200px; width: 100%;" class="img-fluid">
+        </div> 
+
+          <div class="shadow text-center profile-content" style="background: white;">
+                  <img [src]="baseUrlFile+user.image" alt="Profile Image" class="img-fluid rounded-pill shadow profile-lg personal-profile-img mb-3 p-1 bg-white" style="width:100px;height:100px">
+                        <div class="mb-3">
+                          <h5 class="fw-bold text-black mb-1"  >
+                            {{user.nom}} {{user.prenom}} <img src="/assets/images/3point.png" class="img-fluid" style="width: 30px;position:absolute;top:0" id="click-trigger">
+                            <ion-popover trigger="click-trigger" triggerAction="click" style="z-index:555">
+                              <ng-template>
+                                <ion-content class="ion-padding">
+                                
+                                  <dd (click)="presentValidationBlock()" style="border-radius:0;width:100%;z-index:555"><i class="bx bx-block" style="color:red"></i> Block</dd>
+                                </ion-content>
+                              </ng-template>
+                            </ion-popover>
+                          </h5>
+                          <p class="text-black-50">({{user.username}})</p>
+                          <p class="text-black-50" *ngIf="user.type == 1">Personal shopper</p>
+                          <p class="text-black-50" *ngIf="user.type == 2">Client</p>
+                        
+                        </div>
+              <app-listepostandfollowers *ngIf="user.isPrivate!=true" [id]="id"></app-listepostandfollowers>
+     
+                <div class="mb-auto osahan-header-tab shadow" style="background: white;text-align:center;" *ngIf="user.isPrivate!=true">
+                  <ul class="nav nav-tabs anis-tabs" id="" role="tablist" style="/*border-bottom: 1px solid #78c6ca !important;*/">
+                    <li class="nav-item col" role="presentation">
+                      <button class="btn btn-secondary" (click)="presentUnfollowedAlert(id, userId, 0)" *ngIf="isFollowing(id)" style="font-size:12px">Unfollowed</button> 
+                      <button class="btn btn-danger" (click)="presentValidationAlert(id, userId, 0)" *ngIf="!isFollowing(id)" style="font-size:12px">Follow</button> 
+
+                    </li>
+                    <li class="nav-item col" role="presentation">
+                      <a class="btn btn-light" [routerLink]="['/message-user-client', userId, id]" fragment="bottom" style="font-size:12px">Message</a>
+                    </li>
+                    <li class="nav-item col" role="presentation">
+                      <a [routerLink]="['/choice-montant', id]" class="btn btn-light" style="font-size:12px">Paiement</a>
+
+                    </li>
+                  </ul>
+                </div>
+    
+          <!-- Tabs -->
+                    <div class="mb-auto osahan-header-tab shadow" style="background: white;" *ngIf="user.isPrivate!=true">
+                      <ul class="nav nav-tabs anis-tabs" id="myTab" role="tablist">
+                        <li class="nav-item col col-none col-nav-image" role="presentation" (click)="changeBorder('col-nav-image')" style="border-bottom:2px solid black">
+                          <button class="nav-link active" id="summary-tab" data-bs-toggle="tab" data-bs-target="#summary-tab-pane" type="button" role="tab" aria-controls="summary-tab-pane" aria-selected="true" ><img src="/assets/icon/Image.png"></button>
+                        </li>
+                        <li class="nav-item col col-none col-nav-video" role="presentation" (click)="changeBorder('col-nav-video')">
+                          <button class="nav-link" id="calender-tab" data-bs-toggle="tab" data-bs-target="#calender-tab-pane" type="button" role="tab" aria-controls="calender-tab-pane" aria-selected="false" style="color: black !important;"><img src="/assets/icon/Video.png"></button>
+                        </li>
+                        <li class="nav-item col col-none col-nav-post" role="presentation" (click)="changeBorder('col-nav-post')">
+                          <button class="nav-link" id="review-tab" data-bs-toggle="tab" data-bs-target="#review-tab-pane" type="button" role="tab" aria-controls="review-tab-pane" aria-selected="false" style="color: black !important;"><img src="/assets/icon/status.png"></button>
+                        </li>
+                      </ul>
+                    </div>
+        </div>
+
+        <div>
+          <ng-container *ngIf="user.isPrivate!=true">
+                <div class="tab-content" id="myTabContent">
+                
+                    <div class="tab-pane fade show active" id="summary-tab-pane" role="tabpanel" aria-labelledby="summary-tab" tabindex="0">
+                            <div class="p-3" style="min-height:500px">
+                              <ng-container *ngIf="!posts || posts.length==0 || verifFileAll('img')==false">
+                                <div style="text-align:center">
+                                  No items available
+                                </div>
+                              </ng-container>
+                                      <div class="row row-cols-4 g-4 custom-check mb-3 p-3" style="--bs-gutter-y: 0rem;" *ngIf="posts.length>0">
+                                      
+                                              <ng-container *ngFor="let post of posts;let i= index" >
+                                                  <div class="col" *ngIf="verifFile(post)=='img'" style="width:33.31%;">
+                                                    <a [routerLink]="'/detaille-post/' + post.id"><app-postprofiles [post]="post" [compte]="1"></app-postprofiles></a>
+                                                  </div>
+                                            </ng-container>
+                                      </div>
+                            </div>
+                          </div> 
+                    <!-- Calendar -->
+                    <div class="tab-pane fade " id="calender-tab-pane" role="tabpanel" aria-labelledby="calender-tab" tabindex="0">
+                            <div class="p-3" style="min-height:500px">
+                              <ng-container *ngIf="!posts || posts.length==0 || verifFileAll('mp4')==false">
+                                <div style="text-align:center">
+                                  No items available
+                                </div>
+                              </ng-container>
+                              <div class="row row-cols-2 g-4 custom-check mb-3 p-3">
+                                
+                                    <ng-container *ngFor="let post of posts;let i= index" >
+                                      <div class="col" *ngIf="verifFile(post)=='mp4'">
+                                        <a [routerLink]="'/detaille-post/' + post.id"> <app-postprofiles [post]="post" [compte]="1"></app-postprofiles></a>
+                                      </div>
+                                    </ng-container>
+                                </div>
+                            </div>
+                    </div>
+                    <!-- Review -->
+                    <div class="tab-pane fade" id="review-tab-pane" role="tabpanel" aria-labelledby="review-tab" tabindex="0">
+                      <div class="p-3" style="min-height:500px">
+                        <div class="row row-cols-1 g-4 custom-check mb-3 p-3">
+                          <ng-container *ngIf="!posts || posts.length==0 || !verifFileAllText()">
+                            <div style="text-align:center">
+                              No items available
+                            </div>
+                          </ng-container>
+                              <ng-container *ngFor="let post of posts;let i= index" >
+                                <div class="col" *ngIf="!verifFile(post)">
+                                  <a [routerLink]="'/detaille-post/' + post.id"><app-postprofiles [post]="post" [compte]="1"></app-postprofiles></a>
+                                </div>
+                              </ng-container>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+          </ng-container>
+          <ng-container *ngIf="user.isPrivate">
+            <div class="private-account">
+              <div class="col-lg-12">
+              <img src="/assets/icon/private.png" alt="Compte privé">
+              </div>
+             
+            </div>
+            <div class="col-lg-12 text-center">
+              Private account
+              </div>
+          </ng-container>
+          
+        </div>
+      </div>
+
+      <app-footer></app-footer>
+    </div>
+  </div>
+</ion-content>

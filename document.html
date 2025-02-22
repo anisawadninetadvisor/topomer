@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Scroll Auto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 10px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+            max-width: 80%;
+        }
+        .message.user {
+            align-self: flex-end;
+            background-color: #007bff;
+            color: white;
+        }
+        .message.other {
+            align-self: flex-start;
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="chat-container" id="chatBox">
+            <!-- Messages dynamiques ici -->
+        </div>
+        <input type="text" id="messageInput" class="form-control mt-2" placeholder="Écrire un message...">
+        <button class="btn btn-primary mt-2 w-100" onclick="sendMessage()">Envoyer</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let messageInput = document.getElementById("messageInput");
+            let messageText = messageInput.value.trim();
+            if (messageText === "") return;
+
+            let chatBox = document.getElementById("chatBox");
+            let messageDiv = document.createElement("div");
+            messageDiv.classList.add("message", "user");
+            messageDiv.innerText = messageText;
+            chatBox.appendChild(messageDiv);
+
+            // Scroll automatiquement vers le bas
+            chatBox.scrollTop = chatBox.scrollHeight;
+
+            // Vider l'input après envoi
+            messageInput.value = "";
+        }
+    </script>
+</body>
+</html>

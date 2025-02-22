@@ -1,0 +1,92 @@
+<ion-header [translucent]="true" style="">
+  
+  <ion-toolbar style="--border-width: 0;">
+    <ion-buttons slot="start">
+      <ion-button routerLink="/">
+        <ion-icon name="arrow-back" style="color:black"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Notification</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content [fullscreen]="true">
+  <div class="notification d-flex flex-column vh-100">
+    <!-- navbar -->
+    <div class="mb-auto bg-primary osahan-header-tab shadow" style="background:white !important">
+       
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          
+            <li class="nav-item col" role="presentation" style="display:none">
+                <button class="nav-link" id="interview-tab" data-bs-toggle="tab" data-bs-target="#interview-tab-pane" type="button" role="tab" aria-controls="interview-tab-pane" aria-selected="true">Interactions</button>
+            </li>
+            <li class="nav-item col" role="presentation" style="display:none">
+                <button class="nav-link" id="bookings-tab" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">Transactions</button>
+            </li>
+        </ul>
+        
+    </div>
+    <!-- body -->
+   
+    <div class="my-auto vh-100 overflow-auto p-3">
+       
+        <div class="tab-content" id="myTabContent">
+           
+            <div class="tab-pane fade show active" id="interview-tab-pane" role="tabpanel" aria-labelledby="interview-tab" tabindex="0">
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                    <h5 class="fw-bold m-0"></h5>
+                    <button class="btn bg-light text-muted d-flex align-items-center gap-1" (click)="getData()">
+                        Refresh  <i class="bx bx-refresh"></i>
+                      </button>
+                  </div>
+                <ng-container *ngFor="let n of notfication;let i=index">
+                    <a [routerLink]="'/detaille-post/' + n.related_id" *ngIf="n.type!='pay'" style="color:black">
+                <div class="d-flex align-items-start gap-3 mb-4" >
+                    
+                        
+                    <img src="{{baseUrlFile}}{{n.images}}" alt="" class="img-fluid shadow rounded-pill profile-sm">
+                    <div>
+                      
+                        <p class="mb-1"><span class="fw-bold">{{n.text}}</span>
+                        </p>
+                        <p class="mb-0 small text-primary">
+                            <span class="text-muted">{{ timeAgo(n.createdAt) }}</span>
+                        </p>
+                    </div>
+                
+                
+                </div>
+            </a>
+            </ng-container>
+               
+               
+            </div>
+            <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <div class="my-5">
+                        <div class="text-center">
+                            <h5 class="fw-bold mb-3"></h5>
+                            <h5 class="fw-bold mb-2">No bookings yet!</h5>
+                            <p class="text-muted">Your full list of notifications live here.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+ 
+</div>
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>
+

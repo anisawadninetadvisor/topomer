@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+body {
+    background: #ffffff;
+    /* Old browsers */
+    font-family: 'Rubik', sans-serif;
+}
+
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 6px;
+    border: 4px solid transparent;
+    background-clip: padding-box;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 0, .15);
+    -webkit-box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .05), inset 1px 1px 0 rgba(0, 0, 0, .05);
+    box-shadow: inset -1px -1px 0 rgba(0, 0, 0, .05), inset 1px 1px 0 rgba(0, 0, 0, .05);
+}
+
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: #ffffff;
+}
+
+::-webkit-scrollbar-thumb {
+    height: 50px;
+    background: hsla(0, 0%, 53.3%, 0.4);
+}
+
+.phone-screen {
+    background: url(phone.jpg);
+    width: 475px;
+    height: 769px;
+    padding: 29px 0;
+    margin: auto;
+}
+
+iframe {
+    width: 400px;
+    height: 703px;
+    border: none;
+    background: #fff;
+    border-radius: 25px;
+    padding: 0px;
+}
+
+img.logo {
+    width: 120px;
+    margin: 29px 0;
+}
+
+.f-r {
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.hv-100 {
+    height: 100vh;
+}
+
+.btn-primary,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background: #2474ff;
+    border-color: #2474ff !important;
+}
+
+.btn-outline-primary {
+    background-color: #ffffff !important;
+    border-color: #2474ff !important;
+    color: #2474ff !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    color: #2474ff !important;
+}
+
+.qrcode {
+    width: 225px;
+}
+
+.btn {
+    font-size: 17px;
+    border-radius: 6px;
+    padding: 14px 29px;
+    min-width: 202px;
+    font-weight: 600;
+}
+
+.rounded {
+    border-radius: 6px !important;
+}

@@ -1,0 +1,184 @@
+<div class="p-3 post-componets post-like" *ngIf="post.nom">
+          <!----- animation like -->
+
+          <div class="like-animation" *ngIf="showLike">
+            <div class="like-content">
+              <i class="bx bxs-heart" style="font-size:150px"></i>
+             
+            </div>
+          </div>
+
+          <div class="like-animation" *ngIf="showDislike">
+            <div class="like-content">
+              <i class="bx bx-dislike" style="font-size:150px;color:red !important"></i>
+           
+            </div>
+          </div>
+
+
+          
+         <div class=" rounded-3  shadow border">
+          <app-header-post *ngIf="compte=='0'" [postNom]="post.nom" [postPrenom]="post.prenom" [postcreatedAt]="post.createdAt" [postUser]="post.user" [postImage]="post.image"></app-header-post>
+          <ng-container *ngIf="compte=='1'">
+             
+            <div class="d-flex align-items-center">
+                  <div class="ms-2">
+                      
+                      
+                      <span style="font-size: 0.9em; color: #6c757d;">{{timeAgo(post.createdAt)}}</span>
+                  </div>
+          </div>
+          </ng-container>
+          <div class="mb-3 position-relative" style="text-align:center" id="swipeArea" (click)="linkredirect(post.id)">
+            
+            <ng-container *ngIf="file.length>0 && verifFile(file[0])=='img'">
+              <img *ngIf="file.length == 1 && verifFile(file[0]) === 'img'" 
+              [src]="base_url_file + file[0]" 
+              alt="" 
+              class="img-fluid rounded-3" />
+       
+            <div *ngIf="file.length > 1 && verifFile(file[0]) === 'img'"> 
+                <swiper-container pagination="true"  [options]="{ slidesPerView: 3, loop: true }">
+                  <swiper-slide *ngFor="let slide of file">
+                    <img [src]="base_url_file + slide" 
+                          alt="" 
+                          class="slide-image img-fluid rounded-3" />
+                  </swiper-slide>
+                </swiper-container>
+              </div>
+            </ng-container>
+            <ng-container *ngIf="file.length > 0 && verifFile(file[0]) === 'mp4'">
+                <div class="video-container position-relative">
+                  <video muted loop controls class="img-fluid rounded-3 w-100 video" id="video{{ post.id }}" style="max-width: 100%; height: auto;">
+                    <source [src]="base_url_file + file[0]"  type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="file.length == 0">
+<div
+    class="post-background p-3 mb-3 post-text"
+    style="
+        background-image: url('{{base_url_file}}storage/icone/images/{{post.bg}}');
+        background-color: #f0f2f5;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        background-size: cover;
+        background-position: center;
+    "
+>                    <div class="">
+                        <p *ngIf="post.text.length < 140" class="text-center mt-3" style="font-size: 30px; color:{{post.color}};text-align:justify !important;  word-break: break-all;word-break: normal;" [innerHTML]="post.text | highlightHashtags">
+                          
+                        </p>
+                        <p *ngIf="post.text.length > 140 && post.text.length >60" class="text-center mt-3" style="text-align:justify !important;  word-break: break-all;font-size: 22px; color:{{post.color}};word-break: normal;" [innerHTML]="post.text | highlightHashtags">
+                          
+                        </p>
+                        <p *ngIf="post.text.length <=60 " class="text-center mt-3" style="text-align:justify !important;  word-break: break-all;font-size: 15px; color:{{post.color}};word-break: normal;" [innerHTML]="post.text | highlightHashtags">
+                            
+                        </p>
+                    </div>
+                </div>
+            </ng-container>
+              <div class="position-absolute post-div-tr-initial" style="" *ngIf="swipedeclare"  (touchstart)="startSwipe($event)"
+              (touchend)="endSwipe($event)">
+              <div class="bg-dark bg-opacity-20 d-flex justify-content-between align-items-center p-2 post-div-tr">
+                <a  class="text-white"><img src="/assets/images/coeur.png" style="width:20px" class="img-fluid"></a> 
+                <a  class="text-white"> <img src="/assets/assets/img/my-profile.jpg" alt="" class="img-fluid rounded-pill profile" style="width:20px"> Anis</a> 
+                <a  class="text-white"><img src="/assets/images/croix.png" class="img-fluid" style="width:20px"></a>
+            </div>
+              </div>
+          </div>
+        
+          
+          <div class="ms-0 m-lg-3 ms-2" style="color:#0000004D;">
+          
+          </div>
+          <div>
+          <div class="d-flex ms-2 " style="margin-top:10px" >
+             
+             
+              
+             
+          </div>
+          <div class="d-flex ms-2 " style="margin-top:10px" >
+            <a class="me-3 text-muted d-flex align-items-center icone-anis-awadni">
+                <i class="bx bxs-heart" style="font-size:25px;color:red !important;" *ngIf="post.likes" (click)="likes()"></i>
+                <i class="bx bxs-heart" style="font-size:25px;color:#8292B4 !important" *ngIf="post.likes==0" (click)="likes()"></i>
+                <span class="ms-1">{{post.nbJaime}} <span class="none-mobile">Likes</span></span> 
+            </a>
+            <a  class="me-3 text-muted d-flex align-items-center icone-anis-awadni">
+              <i class="bx bx-dislike" style="font-size:25px;color:red !important" *ngIf="post.dislikes" (click)="dislikes()"></i>
+              <i class="bx bx-dislike" style="font-size:25px;color:#8292B4 !important" *ngIf="post.dislikes==0" (click)="dislikes()"></i>
+              <span class="ms-1">{{post.nbDislikes}} <span class="none-mobile">Dislikes</span></span> 
+
+            </a>
+            <a  (click)="openModal()" class="me-3 text-muted d-flex align-items-center icone-anis-awadni">
+                <i class="bx bxs-comment-dots" style="font-size:25px"></i> 
+                <span class="ms-1">{{post.nbCommentaire}} <span class="none-mobile">Comments</span></span> 
+            </a>
+            <a  class="text-muted d-flex align-items-center ms-auto shadow" (click)="presentActionSheet()"> 
+              <img src="/assets/images/3point.png" class="img-fluid" style="width:30px" >
+           
+          </a>
+            
+            
+        </div>
+      </div>
+  <div class="ms-2 m-3" style="margin-top:10px;" *ngIf="file.length>0">
+    <div [innerHTML]="post.text | highlightHashtags"></div>
+
+  </div>
+  
+             
+              
+       
+  <div class="social-sharing-buttons" style="padding:3%;display:none">
+   
+      <img src="/assets/icon/fb.png" class="img-responsive" style="width:50px;" (click)="partagerVideoEtTexte()">
+ 
+
+      <img src="/assets/icon/in.png" class="img-responsive" style="width:50px;margin-left:10px">
+
+   
+      <img src="/assets/icon/tw.png" class="img-responsive"  style="width:50px;margin-left:10px" (click)="partagerVideoEtTexte()">
+  
+  </div>
+      
+</div>
+<div class="p-3 post-componets post-like loading-anis" *ngIf="!post.nom" style="">
+  <div class="loader"></div>
+
+</div>
+<ion-content>
+  <ion-modal [isOpen]="isModalOpen" (willDismiss)="closeModal()" [breakpoints]="[0, 0.5, 0.9]" initialBreakpoint="0.8" backdropDismiss="true">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <!-- Zone d'entrée de commentaire -->
+        <ion-item>
+          <ion-input [style]="commentErrorStyle" placeholder="Write a comment" (keyup.enter)="onEnter($event)"></ion-input>
+        </ion-item>
+
+        <!-- Zone d'affichage des commentaires -->
+        <div class="vh-100 d-flex flex-column justify-content-start overflow-auto p-3" style="max-height: 70vh;">
+          <div class="link-dark" *ngFor="let comment of listeComment">
+            <a (click)="fermerModal()" [routerLink]="dynamicLink(comment.userId)" style="color:black" >
+                <div class="d-flex align-items-center gap-3 mb-4">
+                  <img [src]="baseUrlFile + comment.image" alt=""  class="img-fluid rounded-lg shadow profile" style="border-radius: 1.5rem;width:50px;height:50px">
+                  <div>
+                    <h6 class="" style="margin-bottom: 0 !important; margin-top: 0 !important;">{{ comment.username }}</h6>
+                    <p class="fw-bold text-primary m-0 small">{{ comment.commentaire }}</p>
+                  </div>
+                  <div class="ms-auto">
+                    <span class="fw-normal text-muted" style="font-size: 12px;">. {{ timeAgo(comment.createdAt) }}</span>
+                  </div>
+                </div>
+              </a>
+          </div>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+
+
+

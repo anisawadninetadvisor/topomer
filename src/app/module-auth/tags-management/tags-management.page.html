@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+<ion-content [fullscreen]="true">
+<div class="log-in p-4 d-flex flex-column vh-100 flex-grow-1" >
+ 
+  <div class="d-flex align-items-start justify-content-between mb-4">
+      <div>
+          <h2 class="fw-bold text-primary">Preferences</h2>
+          <span>Share your interests with us!</span>
+      </div>
+  </div>
+  <div class="mb-4" style="height:90%; overflow-y: auto;"> <!-- Ajout du overflow-y -->
+      <div style="height: auto; max-height:90%; overflow-y: auto;"> <!-- Conteneur avec défilement -->
+        <ng-container *ngFor="let tag of tags; let i = index">
+          <button *ngIf="tag.choice == true; else notSelected" 
+        class="btn p{{tag.id}}" 
+        style="margin-top:3%; margin-left:2%; background:black; color:white; border:1px solid black; border-radius:25px;" 
+        (click)="addchoice(tag.id, i)">
+    {{ tag.title }}
+</button>
+
+<ng-template #notSelected>
+    <button class="btn" 
+            style="margin-top:3%; margin-left:2%; background:white; color:black; border:1px solid black; border-radius:25px;"  (click)="addchoice(tag.id, i)">
+            {{tag.title}}
+    </button>
+</ng-template>
+        </ng-container>
+      </div>
+  </div>
+</div>
+<div class="fixed-bottom text-center">
+  <button class="btn btn-primary btn-lg w-100" style="background-color:#333434 !important; z-index:555; width:80% !important" (click)="updateTags()">Next</button><br><br>
+</div>
+</ion-content>
+

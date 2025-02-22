@@ -1,0 +1,13 @@
+<div class="mb-auto osahan-header-tab shadow" style="background: white;text-align:center">
+  <ul class="nav nav-tabs anis-tabs" id="" role="tablist" style="">
+    <li class="nav-item col" role="presentation">
+    <b>{{dashbord.postCount}} posts</b>
+    </li>
+    <li class="nav-item col" role="presentation">
+      <b><a [routerLink]="['/liste-followers-user',id]"> {{dashbord.followersCount}} followers </a></b>
+    </li>
+    <li class="nav-item col" role="presentation">
+      <b><a [routerLink]="['/liste-following-user',id]"> {{dashbord.followingsCount}} following</a></b>
+    </li>
+  </ul>
+</div>

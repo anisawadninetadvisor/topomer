@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+<ion-content [fullscreen]="true">
+<div class="log-in p-4">
+   
+  <div class="d-flex align-items-start justify-content-between mb-4">
+      <div>
+          <h2 class="fw-bold text-primary">Login to your accounts</h2>
+          <span>Enter your credentials to access your account.</span>
+          <div style="color:red">{{errorlogin}}</div>
+      </div>
+  </div>
+  <pre>{{ debugLog | json }}</pre>
+
+      <div class="mb-4">
+          <label for="exampleInputEmail1" class="form-label text-muted mb-0 small" >Username or email or phone</label>
+          <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.email}}" [(ngModel)]="user.email" id="exampleInputEmail1"  aria-describedby="emailHelp">
+     
+        </div>
+      <div class="mb-2">
+        <div style="color:red">{{userVerif.email}}</div>
+          <label for="exampleInputPassword1" class="form-label text-muted mb-0 small">Password</label>
+          <input type="password" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" style="{{userVerifstyle.password}}" [(ngModel)]="user.password" id="exampleInputPassword1" >
+          <div style="color:red">{{userVerif.password}}</div>
+        </div>
+      <div class="text-end mb-4">
+          <span style="float:left"><input type="checkbox" checked> Remember me</span>
+          <a routerLink="/reset-password" class="text-decoration-underline text-muted small">Forget Password?</a>
+        
+        </div>
+      <button style="background-color:#333434 !important;z-index=555" class="btn btn-primary btn-lg w-100"  (click)="login()">Log In</button>
+      <br><br> <div style="text-align:center">OR</div> <br>
+      <button class="google-btn btn-lg w-100" (click)="loginWithGoogle()">
+        <img src="/assets/icon/google-logo.png" alt="Google Logo" >
+         <span>Continue with Google</span>
+     </button>
+     <ion-button (click)="loginWithGoogleanis()">Se connecter avec Google</ion-button>
+
+    
+    
+    </div>
+<div class="fixed-bottom  text-center">
+  <p>Don’t have an account !? <a routerLink="/register">Sign Up</a></p> 
+</div>
+</ion-content>

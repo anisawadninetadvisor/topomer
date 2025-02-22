@@ -1,0 +1,46 @@
+
+    
+    <ion-header [translucent]="true">
+ 
+    </ion-header>
+    <ion-header [translucent]="true">
+        <ion-toolbar>
+            <app-header></app-header>
+       
+        </ion-toolbar>
+      </ion-header> 
+    <ion-content  [scrollEvents]="true" (ionScroll)="logScrolling($event)" style="overflow-y: scroll;--offset-bottom:0px !important">
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+      <div class="loading-container">
+        <div class="loader"></div>
+      </div>
+      <div class="home d-flex flex-column vh-100 flex-grow-1 ">
+        <!-- navbar -->
+            
+            <div class="vh-100" style="padding-bottom:5%"> 
+                    <ng-container *ngFor="let post of posts;let i= index">
+                        <app-post [post]="post" [compte]="0"></app-post>
+                    </ng-container>
+                    <div class="text-muted text-center py-3" *ngIf="nodata">- No data available -</div>
+            </div>
+           
+
+            
+         
+       
+    </div>
+    <br><br><br>
+</ion-content>
+<ion-footer>
+    <ion-toolbar>
+      <app-footer></app-footer>   
+    </ion-toolbar>
+  </ion-footer>
+
+   
+
+   
+    
+

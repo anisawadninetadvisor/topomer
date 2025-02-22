@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="overflow-hidden" style="background: white">
+    <div class="profile d-flex flex-column vh-100 w-100">
+      <!-- Navbar -->
+      <div class="mb-auto profile-navbar">
+        <div class="d-flex align-items-center p-3">
+          <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+            <a class="d-flex" routerLink="/menu-parametre">
+              <i class='bx bx-arrow-back bx-sm text-white'></i>
+            </a>
+          </div>
+          <div style="margin-left: 10px">
+            <h3>Edit profile</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="vh-100 my-auto overflow-auto">
+        <div class="mb-2">
+          <h5 class="p-3 mb-0"></h5>
+          <h5 class="p-3 mb-0"></h5>
+
+          <!-- User Profile Section -->
+          <a href="#" class="link-dark">
+            <div class="bg-white rounded-3 shadow d-flex align-items-center p-3 border mb-2">
+              <img [src]="baseUrlFile + user.image" alt="Profile Image" class="img-fluid rounded-pill profile" style="width: 50px; height: 50px;">
+              <div style="margin-left: 3%;">
+                <h6 class="mb-1">{{ user.nom }} {{ user.prenom }}
+                 
+                </h6>
+                <p>Don’t tell anyone, but I’m a person who.</p>
+              </div>
+            </div>
+          </a>
+
+          <!-- Settings Links -->
+          <div class="m-3">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Picture</label>
+              <input type="file" id="fileInput" style="display: none;" (change)="handleFileUpload($event)">
+              <input type="radio" class="btn-check" name="btnradio" id="btnradio50" autocomplete="off" >
+              <label  style="padding: 5px; cursor: pointer;" class="btn btn-outline-primary osahan-box" for="btnradio50" onclick="document.getElementById('fileInput').click();">
+                <img [src]="image" alt="Profile Image" class="img-fluid rounded-pill profile" style="width: 50px; height: 50px;">
+              </label>
+          </div>
+
+
+            <div class="mb-3">
+                <label for="exampleInputName1" class="form-label text-muted mb-0 small">Full Name</label>
+                <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" id="exampleInputName1" [(ngModel)]="dataUser.nom"  aria-describedby="nameHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputName1" class="form-label text-muted mb-0 small">Last Name</label>
+              <input type="text" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" id="exampleInputName1" [(ngModel)]="dataUser.prenom" aria-describedby="nameHelp">
+          </div>
+            
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Email</label>
+                <input type="email" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" disabled id="exampleInputEmail1" [(ngModel)]="dataUser.email"  aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label text-muted mb-0 small">Phone</label>
+              <input type="email" class="form-control bg-transparent rounded-0 border-0 border-bottom px-0" id="exampleInputEmail1" [(ngModel)]="dataUser.phone"  aria-describedby="emailHelp">
+           </div>
+           <button  class="btn btn-primary btn-lg w-100 mb-3" (click)="uploadImagesLoading()">Save</button>
+          </div>
+        </div>
+      </div>
+
+      <app-footer></app-footer>
+    </div>
+  </div>
+</ion-content>

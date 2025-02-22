@@ -1,0 +1,125 @@
+<ion-header [translucent]="true">
+ 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="overflow-hidden" style="background: white">
+    <div class="profile d-flex flex-column vh-100 w-100">
+      <!-- Navbar -->
+      <div class="mb-auto profile-navbar">
+        <div class="d-flex align-items-center p-3">
+          <div class="bg-dark bg-opacity-25 rounded-pill icon me-auto">
+            <a class="d-flex" routerLink="/menu-parametre">
+              <i class='bx bx-arrow-back bx-sm text-white'></i>
+            </a>
+          </div>
+          <div style="margin-left: 10px">
+            <h3>Payment history</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="container requests d-flex flex-column vh-100">
+        <!-- navbar -->
+        <div class="mb-auto bg-primary osahan-header-tab shadow" style="margin-top:100px;">
+           
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="background:white">
+                <li class="nav-item col" role="presentation">
+                    <button class="nav-link active" id="interview-tab" style="color:black !important" data-bs-toggle="tab" data-bs-target="#interview-tab-pane" type="button" role="tab" aria-controls="interview-tab-pane" aria-selected="true">Transaction</button>
+                </li>
+                <li class="nav-item col" role="presentation">
+                    <button class="nav-link" id="bookings-tab" style="color:black !important" data-bs-toggle="tab" data-bs-target="#bookings-tab-pane" type="button" role="tab" aria-controls="bookings-tab-pane" aria-selected="false">Received</button>
+                </li>
+              
+            </ul>
+        </div>
+        <!-- body -->
+        <div class="vh-100 my-auto overflow-auto p-3">
+            <div class="tab-content" id="myTabContent">
+                <!-- interview -->
+                <div class="tab-pane fade show active" id="interview-tab-pane" role="tabpanel" aria-labelledby="interview-tab" tabindex="0">
+                    <div class="mb-5">
+                       
+                        <div *ngIf="data.length>0">
+                           
+                            <a class="link-dark" *ngFor="let key of data;">
+                                <div class="bg-white rounded-3 shadow d-flex align-items-center justify-content-between p-3 border">
+                                    <div>
+                                        <h6 class="mb-1">{{key.userName}}</h6>
+                                        <p class="mb-1 small text-muted">{{key.createdAt}}</p>
+                                        <p class="text-black m-0">{{key.amounts}} $ | 
+                                          <ng-container *ngIf="key.type==1">
+                                            Consultation
+                                          </ng-container>
+                                          <ng-container *ngIf="key.type==2">
+                                            Shop
+                                          </ng-container>
+                                        </p>
+                                        <p class="text-primary m-0">Accepted</p>
+                                    </div>
+                                    <img src="{{base_url_file}}{{key.userImage}}" alt="" class="img-fluid rounded-lg profile">
+                                </div>
+                            </a>
+                        </div>
+                        <div *ngIf="data.length==0">
+                          <div class="text-muted text-center py-3">- No data available -</div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <!-- booking -->
+                <div class="tab-pane fade" id="bookings-tab-pane" role="tabpanel" aria-labelledby="bookings-tab" tabindex="0">
+                  <div class="mb-5">
+                       
+                    <div *ngIf="data2.length>0">
+                       
+                        <a  class="link-dark" *ngFor="let key of data2;">
+                            <div class="bg-white rounded-3 shadow d-flex align-items-center justify-content-between p-3 border">
+                                <div>
+                                    <h6 class="mb-1">{{key.clientName}}</h6>
+                                    <p class="mb-1 small text-muted">{{key.createdAt}}</p>
+                                    <p class="text-black m-0">{{key.amounts}} $ | 
+                                      <ng-container *ngIf="key.type==1">
+                                        Consultation
+                                      </ng-container>
+                                      <ng-container *ngIf="key.type==2">
+                                        Shop
+                                      </ng-container>
+                                    </p>
+                                    <p class="text-primary m-0">Accepted</p>
+                                </div>
+                                <img src="{{base_url_file}}{{key.clientImage}}" alt="" class="img-fluid rounded-lg profile">
+                            </div>
+                        </a>
+                    </div>
+                    <div *ngIf="data2.length==0">
+                      <div class="text-muted text-center py-3">- No data available -</div>
+                    </div>
+                </div>
+                    <div>
+                   
+                        <!-- people-1 -->
+                     
+                        <!-- people-2 -->
+                    
+                    </div>
+                </div>
+                <!-- applications -->
+            
+            </div>
+        </div>
+        <!-- footer -->
+       
+    </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>
+

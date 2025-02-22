@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!-- Bouton de retour -->
+    <ion-buttons slot="start">
+      <ion-back-button text="Back" icon="arrow-back-outline"></ion-back-button>
+    </ion-buttons>
+    <!-- Titre de la page -->
+    <ion-title>List of followers</ion-title>
+  </ion-toolbar> 
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="home d-flex flex-column vh-100 flex-grow-1 ">
+
+    <div class="vh-100 my-auto overflow-auto p-3">
+     
+      <ng-container *ngIf="liste && liste.length>0 else elseBlock">
+        <div class="d-flex align-items-center gap-3 mb-4" *ngFor="let list of liste;let i=index" style="border-bottom:1px solid #ccc9c9;padding-bottom: 3%;">
+            
+            <img [src]="baseUrlFile + list.clientPhotos" class="img-fluid rounded-lg shadow profile" (click)="dynamicLink(list.client)">
+            <div (click)="dynamicLink(list.client)">
+                <h6 class="mb-1">{{list.clientUsername}}</h6>
+              
+            
+              </div>
+           
+            <div class="ms-auto">
+              <button 
+              class="btn btn-danger btn-sm px-2 ms-auto" (click)="presentValidationAlert(list.client,userId,1)" 
+              *ngIf="!isFollowing(list.client) && userId!=list.client">
+              Follow
+            </button>
+             <button 
+              class="btn btn-secondary btn-sm px-2 ms-auto" 
+              *ngIf="isFollowing(list.client) && userId!=list.client" (click)="presentUnfollowedAlert(list.client,userId, 0)">
+              Unfollowed
+            </button>
+            </div>
+        </div>
+      </ng-container>
+
+      <ng-template #elseBlock>
+        <div class="text-muted text-center py-3">- No data available -</div>
+      </ng-template>
+      
+
+
+      </div>
+    </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <app-footer></app-footer>   
+  </ion-toolbar>
+</ion-footer>

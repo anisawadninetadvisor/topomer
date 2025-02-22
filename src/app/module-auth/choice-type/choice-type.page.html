@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  
+</ion-header>
+<ion-content [fullscreen]="true">
+<div class="log-in p-4">
+  <a routerLink="/login"><i class="bx bx-arrow-back bx-sm text-black" style="z-index:555"></i></a>
+<div class="d-flex align-items-start justify-content-between mb-4">
+    <div>
+        <h2 class="fw-bold text-primary">Nice to meet you</h2>
+        <span>Select your role for a personalized experience!</span>
+    </div>
+</div>
+     <div class="mb-4">
+      <button class="btn  btn-lg w-100 p1" style="background:white;color:black;border:1px solid black;border-radius:25px" (click)="changeType(1)">Personal shopper</button>
+      <button class="btn  btn-lg w-100 mt-lg-5 p2"  style="margin-top:20%;background:white;color:black;border:1px solid black;border-radius:25px" (click)="changeType(2)">Client</button>
+
+    </div> 
+    
+</div>
+<div class="fixed-bottom  text-center">
+  <button class="btn btn-primary btn-lg w-100" style="background-color:#333434 !important;z-index=555;width:80% !important" (click)="choice()">Next</button><br><br><br><br>
+</div>
+</ion-content>
+

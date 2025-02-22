@@ -1,0 +1,24 @@
+<div class="ms-0 m-lg-12 ms-2" style="padding:2%;">
+  <button class="btn btn-danger btn-sm px-2 ms-auto" style="float: right;margin-top:5%;" (click)="presentValidationAlert(postUser,userId,1)" *ngIf="postUser!=userId && !isFollowing(postUser)">Follow</button>
+  <button 
+  class="btn btn-secondary btn-sm px-2 ms-auto" 
+  style="float: right; margin-top: 5%;" 
+  (click)="presentUnfollowedAlert(postUser, userId, 0)" 
+  *ngIf="postUser != userId && isFollowing(postUser)">
+  Unfollowed
+</button>
+</div>
+<a [routerLink]="dynamicLink()">
+<div class="ms-0 m-lg-3 ms-2" style="color: #0000004D; padding: 5%;padding-top:2%; padding-left: 0;">
+  
+    <div class="d-flex align-items-center">
+        <img [src]="baseUrlFile + postImage" alt="Profile image" class="img-fluid rounded-pill profile" style="width: 50px; height: 50px;">
+            <div class="ms-2">
+                <span style="color: black; font-weight: bold;">{{ postNom }} {{ postPrenom }}</span>
+                <br>
+                <span style="font-size: 0.9em; color: #6c757d;">{{ timeAgo(postcreatedAt) }}</span>
+            </div>
+    </div>
+
+</div>
+</a> 

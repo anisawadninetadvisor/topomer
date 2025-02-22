@@ -1,0 +1,53 @@
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    width: 100%;
+}
+
+#card-element {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #5e72e4;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.success-message {
+    display: flex;
+    align-items: center;
+    /* Aligne verticalement l'icône et le texte */
+    justify-content: center;
+    /* Centrer horizontalement */
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.success-icon {
+    font-size: 55px;
+    margin-right: 10px;
+    text-align: center;
+    /* Espacement entre l'icône et le texte */
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
