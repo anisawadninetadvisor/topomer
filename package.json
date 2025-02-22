@@ -11,6 +11,10 @@
     "test": "ng test",
     "lint": "ng lint"
   },
+  "scripts": {
+    "before_build": "./force-install.sh",
+    "build": "ionic build anis"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "^18.0.0",
