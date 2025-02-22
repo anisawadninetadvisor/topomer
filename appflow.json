@@ -1,0 +1,6 @@
+{
+  "workflow": {
+    "before_build": "npm install --force",
+    "after_build": "echo 'Build terminé'"
+  }
+}
