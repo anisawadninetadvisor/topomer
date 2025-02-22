@@ -4,8 +4,8 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
-    "before_build": "./force-install.sh",
-    "build": "ionic build anis",
+
+
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --force",
