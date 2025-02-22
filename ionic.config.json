@@ -1,7 +1,12 @@
 {
+  npm install --quiet --force
   "name": "topomer_v1",
   "integrations": {
     "capacitor": {}
   },
-  "type": "angular"
+  "type": "angular",
+  "scripts": {
+    "before_build": "npm install --quiet --force",
+    "after_build": "echo 'Build terminé'"
+  }
 }
