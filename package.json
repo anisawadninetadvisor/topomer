@@ -4,16 +4,14 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
+    "before_build": "./force-install.sh",
+    "build": "ionic build anis"
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --force",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint"
-  },
-  "scripts": {
-    "before_build": "./force-install.sh",
-    "build": "ionic build anis"
   },
   "private": true,
   "dependencies": {
